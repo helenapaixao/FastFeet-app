@@ -1,0 +1,27 @@
+# FastFeet
+
+É uma aplicação para uma transportadora fictícia, o FastFeet. A versão mobile do projeto FastFeet representa a visão do entregador, ou seja, todas funcionalidades presentes nesse projeto são para entregadores
+
+Figma
+
+https://www.figma.com/file/hn0qGhnSHDVst7oaY3PF72/FastFeet?node-id=44%3A1193
+
+## Installation
+
+
+
+```bash
+yarn
+```
+
+## Usage
+
+```
+
+## Contributing
+
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
