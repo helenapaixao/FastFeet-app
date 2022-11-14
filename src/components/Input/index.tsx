@@ -1,32 +1,25 @@
-import styled, {css} from 'styled-components/native'
+import React from 'react'
+import { View, Text } from 'react-native'
+import {Container} from './styles'
 
-interface ContainerProps {
-    isFocused: boolean
-    isErrored: boolean
+interface InputProps {
+    label: string;
+    value: string;
+    onChangeText: (text: string) => void;
 }
 
 
-export const Container = styled.View<ContainerProps>`
-    width: 100%;
-    height: 60px;
-    padding: 0 16px;
-   background: #F7F5FA;
-    border-radius: 4px;
-    margin-bottom: 8px;
-    border-width: 2px;
-    border-color: #6f6c80;
+export default function Input() {
 
-    flex-direction: row;
-    align-items: center;
-    
-    ${(props: { isErrored: any; }) => props.isErrored && css`
-        border-color: #c53030;
-    `}
-
-    ${(props: { isFocused: any; }) => props.isFocused && css`
-        border-color: #6f6c80;
-    `}
-
-`;
-
-
+    return (
+        <Container
+            placeholder="Email"
+            placeholderTextColor="#6F6C80"
+            keyboardType="email-address"
+            autoCapitalize="none"
+            autoCorrect={false}
+            onChangeText={() => {}}
+        />
+        
+    )
+}

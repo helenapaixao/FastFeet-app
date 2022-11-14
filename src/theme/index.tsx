@@ -1,13 +1,13 @@
 export default {
     COLORS: {
-        WHITE: '#DCDCDC',
+        WHITE: '#FFFF',
         PRIMARY: '#4C33CC',
-        SECONDARY: '#FFC042',
-        GRAY: '#4C4766',
-        GRAY_: '#6F6C80',
-        TEXT_COMPLEMENT: '#BEBCCC',
-        TEXT_SUBTITLE: '#D4CCFF',
-        SUCESS: '#00DA6D',
+        YELLOW: '#FFC042',
+        GRAY_100: '#4C4766',
+        GRAY_200: '#6F6C80',
+        GRAY_300: '#BEBCCC',
+        PURPLE: '#D4CCFF',
+        GREEN: '#00DA6D',
     },
     FONT_FAMILY: {
         REGULAR: 'Roboto_400Regular',
@@ -15,15 +15,9 @@ export default {
         BOLD: 'Roboto_700Bold',
     },
     FONT_SIZE: {
-        TITLE: 32,
-        SUBTITLE: 18,
-        BASE: 16,
-        SMALL: 12,
+        BG: 32,
+        MD: 18,
+        BS: 16,
+        SM: 12,
     },
-    FONT_WEIGHT: {
-        REGULAR: '400',
-        MEDIUM: '500',
-        BOLD: '700',
-    },
-
 }

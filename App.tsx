@@ -1,14 +1,15 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {  Text, View } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen'
 import { useFonts } from 'expo-font';
 import { Inter_400Regular, Inter_500Medium
-  
 } from '@expo-google-fonts/inter'
 import {
   Roboto_700Bold, Roboto_500Medium
 } from '@expo-google-fonts/roboto'
+
+import Login from './src/screens/Login';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -24,7 +25,6 @@ useEffect(() => {
     async function prepare() {
       try {
         await SplashScreen.preventAutoHideAsync();
-        fontsLoaded;
       } catch (e) {
         // handle any exceptions
       } finally {
@@ -50,18 +50,8 @@ useEffect(() => {
 
 
   return (
-    <View style={styles.container } onLayout={onLayoutRootView}   >
-      <Text>FastFeet</Text>
-      <StatusBar style="auto" />
+    <View  onLayout={onLayoutRootView}  >
+        <Login />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#545',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
