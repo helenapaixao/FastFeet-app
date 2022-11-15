@@ -1,9 +1,25 @@
 import styled from 'styled-components/native'
+import theme from '../../theme'
+
+const image = { uri: "https://reactjs.org/logo-og.png" };
 
 
-export const Container = styled.View`
+export const Background = styled.ImageBackground`   
     flex: 1;
     align-items: center;
     justify-content: center;
-    background-color: #232a;
-`
+    width: 100%;
+    height: 100%;
+    background-color: #4C33CC;
+    align-items: center;
+    justify-content: center;
+    background-image:  url(${image});
+`;
+
+export const Header = styled.View`
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+
+`;

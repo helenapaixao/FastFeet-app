@@ -1,15 +1,13 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-
+import {Background} from './styles'
 
 
 export default function Login() {
 
     return (
-        <View>
+        <Background>
             <Text>Login</Text>
-        </View>
+        </Background>
     )
 }
-
-// });
