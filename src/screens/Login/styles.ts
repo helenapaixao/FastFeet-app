@@ -13,7 +13,6 @@ export const Background = styled.ImageBackground`
     background-color: #4C33CC;
     align-items: center;
     justify-content: center;
-    background-image:  url(${image});
 `;
 
 export const Header = styled.View`

@@ -1,22 +1,23 @@
-import React from 'react'
-import { View, Text, TextInput, TextInputProps} from 'react-native'
-import {Container} from './styles'
+import React from "react";
+import { View, Text, TextInput, TextInputProps } from "react-native";
+import { Container } from "./styles";
 
 interface InputProps {
-    label: string;
-    text: string;
-    onChangeText: (text: string) => void;
+  text: string;
+  onChangeText: (text: string) => void;
+  isErrored: boolean;
+  isFocused: boolean;
 }
 
-
-export default function Input() {
-
-    return (
-        <View>
-            <Text>Login</Text>
-        </View>
-
-        
-        
-    )
+export default function Input({
+  text,
+  isErrored,
+  isFocused,
+  onChangeText,
+}: InputProps) {
+  return (
+    <Container isErrored={isErrored} isFocused={isFocused}>
+      <TextInput placeholder={text} onChangeText={onChangeText} />
+    </Container>
+  );
 }

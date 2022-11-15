@@ -57,7 +57,6 @@ useEffect(() => {
       onLayout={onLayoutRootView}
       style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
        <StatusBar
-      barStyle="light-content"
       backgroundColor="transparent"
       translucent={true}
       />
