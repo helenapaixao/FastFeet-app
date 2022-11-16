@@ -34,11 +34,14 @@ export const Container = styled.View<ContainerProps>`
 export const TextInput = styled.TextInput`
   color: #6f6c80;
   font-size: 16px;
-  font-family: "Inter-Regular";
+  font-family: "Inter_400Regular";
 `;
 
 export const Line = styled.View`
   width: 1px;
   height: 24px;
-  color: #dad7e0;
+  background-color: #DAD7E0;
+  border-radius: 4px;
+  margin-left: 20px;
+  margin-right: 16px;
 `;
