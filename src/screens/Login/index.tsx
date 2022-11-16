@@ -7,6 +7,7 @@ export default function Login() {
   return (
     <Background>
       <Input
+        icon="user-alt"
         text="Digite seu nome"
         isErrored={false}
         isFocused={false}
