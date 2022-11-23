@@ -8,5 +8,5 @@ flex-wrap: wrap;
 justify-content: space-between;
 padding: 40px;
 width: 100%;
-background-color: #8257E5;
+margin-bottom: 350px;
 `;

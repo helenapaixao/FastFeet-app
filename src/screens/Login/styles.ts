@@ -20,5 +20,9 @@ export const Header = styled.View`
     height: 100%;
     align-items: center;
     justify-content: center;
-
 `;
+
+export const ContainerButton = styled.View`
+margin-top: 68px;
+
+`
