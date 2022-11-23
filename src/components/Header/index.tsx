@@ -1,9 +1,9 @@
 import React from 'react'
 import {Image} from 'react-native'
-import { Container } from './styles'
+import { Container,Text,Content } from './styles'
 import Logo from '../../assets/logo.png'
 import TextLogo from '../../assets/logo_text.png'
- 
+
 
 
 export default function Header() {
@@ -15,6 +15,13 @@ export default function Header() {
         <Image source={
             TextLogo
         } />
+        <Content>
+        <Text>
+        Faça seu login para
+          começar suas entregas.
+        </Text>
+        </Content>
+      
     </Container>
 
   )

@@ -13,10 +13,7 @@ export default function Login() {
     <Background>
       <Header/>
       <Input
-  
         name="user"
-        
-      
         onChangeText={() => {}}
       />
       <Input name="Senha"  />

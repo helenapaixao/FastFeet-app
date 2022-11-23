@@ -10,3 +10,15 @@ padding: 40px;
 width: 100%;
 margin-bottom: 350px;
 `;
+
+export const Text = styled.Text`
+font-family: 'Inter_400Regular';
+font-size: 15px;
+color: #fff;
+
+`;
+
+export const Content = styled.View`
+padding: 10px;
+
+`
