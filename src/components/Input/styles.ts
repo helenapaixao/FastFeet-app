@@ -1,11 +1,11 @@
 import styled, { css } from "styled-components/native";
 
 interface ContainerProps {
-  isFocused: boolean;
-  isErrored: boolean;
+  //isFocused: boolean;
+  //isErrored: boolean;
 }
 
-export const Container = styled.View<ContainerProps>`
+export const Container = styled.View`
   width: 311px;
   height: 56px;
   padding: 0 16px;
@@ -18,17 +18,12 @@ export const Container = styled.View<ContainerProps>`
   flex-direction: row;
   align-items: center;
 
-  ${(props: { isErrored: any }) =>
-    props.isErrored &&
-    css`
-      border-color: #c53030;
-    `}
 
-  ${(props: { isFocused: any }) =>
-    props.isFocused &&
-    css`
-      border-color: #ffc042;
-    `}
+
+
+
+   
+
 `;
 
 export const TextInput = styled.TextInput`

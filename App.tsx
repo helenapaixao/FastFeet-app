@@ -21,32 +21,16 @@ export default function App() {
     Roboto_500Medium
   })
 
-  const [isSplashReady, setSplashReady] = useState(false);
-
-useEffect(() => {
-    async function prepare() {
-      try {
-        await SplashScreen.preventAutoHideAsync();
-      } catch (e) {
-        // handle any exceptions
-      } finally {
-        setSplashReady(true);
-
-      }
-    }
-    prepare();
-
-  }, []);
 
 
   const onLayoutRootView = useCallback(async () => {
-    if (isSplashReady) {
+    if (fontsLoaded) {
       // Hide the splash screen
       await SplashScreen.hideAsync();
     }
-  }, [isSplashReady]);
+  }, [fontsLoaded]);
 
-  if (!isSplashReady) {
+  if (!fontsLoaded) {
     return null;
   }
 
@@ -62,7 +46,6 @@ useEffect(() => {
       />
       <Login />
     </View>
-
     </ThemeProvider>
     
   );

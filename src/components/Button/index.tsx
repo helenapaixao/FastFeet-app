@@ -6,9 +6,9 @@ interface ButtonProps {
   children?: React.ReactNode;
 }
 
-export default function Button({ children, ...rest }: ButtonProps) {
+export default function Button({ onPress,children}: ButtonProps) {
   return (
-    <Container {...rest}>
+    <Container  onPress={onPress}>
       <ButtonText>{children}</ButtonText>
     </Container>
   );
