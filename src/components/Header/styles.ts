@@ -15,7 +15,8 @@ export const Text = styled.Text`
 font-family: 'Inter_400Regular';
 font-size: 15px;
 color: #fff;
-
+text-align: left;
+width: 170px;
 `;
 
 export const Content = styled.View`

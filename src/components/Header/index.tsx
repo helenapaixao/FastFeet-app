@@ -18,7 +18,7 @@ export default function Header() {
         <Content>
         <Text>
         Faça seu login para
-          começar suas entregas.
+        começar suas entregas.
         </Text>
         </Content>
       
