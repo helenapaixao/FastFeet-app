@@ -7,6 +7,7 @@ export const Container = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
   border-radius: 4px;
+  margin-top: 20px;
 `;
 
 export const ButtonText = styled.Text`

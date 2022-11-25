@@ -13,6 +13,8 @@ import {TextInputProps} from 'react-native'
 interface InputProps extends TextInputProps{
   name: string;
   icon: string;
+  password?: boolean;
+  iconPassword?: string;
 }
 
 type InputValueReference = {
@@ -23,11 +25,18 @@ interface InputRef {
   focus(): void;
 }
 
-const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({name, icon, ...rest}, refsd) => {
+
+
+
+const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({name, icon,password = false, ...rest}) => {
   const inputElementRef = useRef<InputValueReference>(null);
 
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
+  const [maskCfp, setMaskCpf] = useState('');
+  const [maskPassword, setMaskPassword] = useState('');
+
+  const [passwordVisible, setPasswordVisible] = useState(false);
 
   const handleInputFocus = useCallback(() => {
     setIsFocused(true);
@@ -43,10 +52,13 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({name, icon
     <Container 
     isErrored={isFocused}
     isFocused={isFocused}>
-      <Icon name={icon} size={20} color={isFocused || isFilled ? '#ff9000' : '#4C33CC'} />
+      <Icon 
+      name={icon} size={20} color={isFocused || isFilled ? '#ff9000' : '#4C33CC'} />
       <Line />
       <TextInput      
         ref={inputElementRef}
+        keyboardAppearance="dark"
+
         name={name}
         icon={icon}
         {...rest}

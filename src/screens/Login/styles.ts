@@ -1,8 +1,28 @@
 import styled from 'styled-components/native'
-import theme from '../../theme'
 
-const image = { uri: "https://reactjs.org/logo-og.png" };
+import Checkbox from 'expo-checkbox';
 
+
+export const CheckboxNative = styled(Checkbox)`
+background-color: #F7F5F4;
+border-radius: 4px;
+width: 20px;
+height: 20px;
+border: none;
+`;
+
+export const CheckboxContainer = styled.View`
+flex-direction: row;
+
+`
+
+export const CheckboxText = styled.Text`
+font-family: "Inter_400Regular";
+font-size: 15px;
+color: #D5CCFF;
+margin-left: 14px;
+
+`   
 
 export const Background = styled.ImageBackground`   
     flex: 1;
@@ -23,6 +43,5 @@ export const Header = styled.View`
 `;
 
 export const ContainerButton = styled.View`
-margin-top: 68px;
-
+margin-top: 18px;
 `

@@ -32,7 +32,6 @@ export const TextInput = styled.TextInput`
   color: #6f6c80;
   font-size: 16px;
   font-family: 'Inter_400Regular';
-
 `;
 
 export const Line = styled.View`
@@ -45,5 +44,9 @@ export const Line = styled.View`
 `;
 
 export const Icon = styled(FeatherIcon)`
+  margin-right: 16px;
+`;
+
+export const IconPassword = styled(FeatherIcon)`
   margin-right: 16px;
 `;
