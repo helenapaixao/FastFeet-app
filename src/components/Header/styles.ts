@@ -7,8 +7,6 @@ flex-direction: row;
 flex-wrap: wrap;
 justify-content: space-between;
 padding: 40px;
-width: 100%;
-margin-bottom: 350px;
 `;
 
 export const Text = styled.Text`
@@ -18,8 +16,3 @@ color: #fff;
 text-align: left;
 width: 170px;
 `;
-
-export const Content = styled.View`
-padding: 10px;
-
-`
