@@ -12,7 +12,7 @@ import Button from "../../components/Button";
 import Header from "../../components/Header";
 
 
-export default function Login() {
+export default function SignIn() {
   const [isChecked, setChecked] = useState(false);
   const [passwordVisible, setPassowrdVisible] = useState(false);
 
