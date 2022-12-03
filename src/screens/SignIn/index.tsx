@@ -6,6 +6,7 @@ import {
   CheckboxNative,
   CheckboxContainer,
   CheckboxText,
+  ButtonForgotPassword
 } from "./styles";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
@@ -14,7 +15,7 @@ import Header from "../../components/Header";
 
 export default function SignIn() {
   const [isChecked, setChecked] = useState(false);
-  const [passwordVisible, setPassowrdVisible] = useState(false);
+
 
   return (
     <Container>
@@ -39,7 +40,7 @@ export default function SignIn() {
             color={isChecked ? "#4630EB" : undefined}
           />
           <CheckboxText>Lembrar-me</CheckboxText>
-          <CheckboxText>Esqueci minha senha</CheckboxText>
+          <ButtonForgotPassword>Esqueci minha senha</ButtonForgotPassword>
         </CheckboxContainer>
 
         <Button onPress={() => {}}>Entrar</Button>

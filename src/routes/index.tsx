@@ -1,10 +1,10 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import {NavigationContainer} from '@react-navigation/native'
+import { AppRoutes } from './app.routes'
 
-import AuthRoutes from './auth.routes'
-
-const Routes: React.FC = () => (
-    <AuthRoutes />
-)
-
-export default Routes
+export function Routes() {
+  return (
+    <NavigationContainer>
+      <AppRoutes />
+    </NavigationContainer>
+  )
+}

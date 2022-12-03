@@ -42,3 +42,6 @@ export const Header = styled.View`
 export const ContainerButton = styled.View`
 margin-top: 18px;
 `
+export const ButtonForgotPassword = styled.TouchableOpacity`
+margin-top: 18px;
+`  

@@ -5,20 +5,20 @@ align-items: center;
 flex-direction: row;
 flex-wrap: wrap;
 justify-content: space-between;
-padding: 40px;
+padding: 40px;;
 `;
 
 export const ContainerContent= styled.View`
-flex-direction: row;
-align-items: center; 
-justify-content: space-between;  
-flex-wrap: wrap; 
+//flex-direction: row;
+//align-items: center; 
+//justify-content: space-between;  
+//flex-wrap: wrap; 
 `;
 
 export const ContainerHeader = styled.View`
-flex-direction: row;
-align-items: center;
-justify-content: space-between;
+//flex-direction: row;
+//align-items: center;
+//justify-content: space-between;
 `;
 
 export const Text = styled.Text`

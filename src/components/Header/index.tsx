@@ -9,9 +9,7 @@ import FF from "../../assets/FF.png";
 export default function Header() {
   return (
     <Container>
-      <ContainerHeader>
-        <Image source={Logo} />
-      </ContainerHeader>
+      <Image source={Logo} />
       <ContainerContent>
         <Image source={TextLogo} />
       </ContainerContent>
