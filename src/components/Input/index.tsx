@@ -1,9 +1,7 @@
 import React, {
   useState,
-  useEffect,
   useRef,
   useCallback,
-  useImperativeHandle,
   forwardRef,
 } from 'react';
 import {Container, Icon, Line, TextInput} from './styles'
@@ -26,17 +24,11 @@ interface InputRef {
 }
 
 
-
-
 const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({name, icon,password = false, ...rest}) => {
   const inputElementRef = useRef<InputValueReference>(null);
 
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
-  const [maskCfp, setMaskCpf] = useState('');
-  const [maskPassword, setMaskPassword] = useState('');
-
-  const [passwordVisible, setPasswordVisible] = useState(false);
 
   const handleInputFocus = useCallback(() => {
     setIsFocused(true);
@@ -57,8 +49,6 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({name, icon
       <Line />
       <TextInput      
         ref={inputElementRef}
-        keyboardAppearance="dark"
-
         name={name}
         icon={icon}
         {...rest}
@@ -70,11 +60,3 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({name, icon
 };
 
 export default forwardRef(Input);
-
-// Path: src/components/input/styles.ts
-// Compare this snippet from src/components/Header/styles.ts:
-// import styled from 'styled-components/native'
-// import {RectButton} from 'react-native-gesture-handler'
-//
-// export const Container = styled.View`
-//   flex: 1;

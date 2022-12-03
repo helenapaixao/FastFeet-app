@@ -23,7 +23,6 @@ border: none;
 
 export const CheckboxContainer = styled.View`
 flex-direction: row;
-
 `
 
 export const CheckboxText = styled.Text`
@@ -32,12 +31,7 @@ font-size: 15px;
 color: #D5CCFF;
 margin-left: 14px;
 margin-right: 11px;
-
-
 `   
-
-
-
 export const Header = styled.View`
     width: 100%;
     height: 100%;

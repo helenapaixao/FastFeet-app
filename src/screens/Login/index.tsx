@@ -11,8 +11,10 @@ import Input from "../../components/Input";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
 
+
 export default function Login() {
   const [isChecked, setChecked] = useState(false);
+  const [passwordVisible, setPassowrdVisible] = useState(false);
 
   return (
     <Container>
@@ -23,7 +25,12 @@ export default function Login() {
         placeholder="CPF"
         onChangeText={() => {}}
       />
-      <Input name="Senha" icon="lock" placeholder="Senha" />
+      <Input 
+      name="Senha" 
+      icon="lock" 
+      placeholder="Senha"
+      onChangeText={() => {}}
+      />
       <ContainerButton>
         <CheckboxContainer>
           <CheckboxNative
