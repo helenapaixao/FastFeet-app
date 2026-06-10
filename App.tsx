@@ -1,30 +1,37 @@
 import React, { useCallback } from "react";
 import { View } from "react-native";
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components/native";
 import { StatusBar } from "expo-status-bar";
 import * as SplashScreen from "expo-splash-screen";
 
-import { useFonts } from "expo-font";
-import { Inter_400Regular, Inter_500Medium } from "@expo-google-fonts/inter";
-import { Roboto_700Bold, Roboto_500Medium } from "@expo-google-fonts/roboto";
+import {
+  useFonts,
+  Inter_400Regular,
+  Inter_500Medium,
+} from "@expo-google-fonts/inter";
+import {
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+} from "@expo-google-fonts/roboto";
 
-import theme from "./src/theme/index";
-
+import theme from "./src/theme";
 import { Routes } from "./src/routes";
-import { NavigationContainer } from "@react-navigation/native";
+
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
-    Roboto_700Bold,
+    Roboto_400Regular,
     Roboto_500Medium,
+    Roboto_700Bold,
   });
 
-  const onLayoutRootView = useCallback(async () => {
+  const onLayoutRootView = useCallback(() => {
     if (fontsLoaded) {
-      // Hide the splash screen
-      await SplashScreen.hideAsync();
+      SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
 
@@ -33,16 +40,11 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <ThemeProvider theme={theme}>
-        <View
-          onLayout={onLayoutRootView}
-          style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-        >
-          <StatusBar backgroundColor="transparent" translucent={true} />
-          <Routes />
-        </View>
-      </ThemeProvider>
-    </NavigationContainer>
+    <ThemeProvider theme={theme}>
+      <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+        <StatusBar style="light" />
+        <Routes />
+      </View>
+    </ThemeProvider>
   );
 }
