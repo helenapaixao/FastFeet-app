@@ -1,62 +1,63 @@
-import React, {
-  useState,
-  useRef,
-  useCallback,
-  forwardRef,
-} from 'react';
-import {Container, Icon, Line, TextInput} from './styles'
-import {TextInputProps} from 'react-native'
+import React, { useCallback, useState, type ComponentProps } from "react";
+import { type TextInputProps } from "react-native";
+import type { Feather } from "@expo/vector-icons";
 
+import { Container, Icon, Line, TextInput } from "./styles";
 
-interface InputProps extends TextInputProps{
-  name: string;
-  icon: string;
-  password?: boolean;
-  iconPassword?: string;
+type FeatherIconName = ComponentProps<typeof Feather>["name"];
+
+interface InputProps extends TextInputProps {
+  icon: FeatherIconName;
 }
 
-type InputValueReference = {
-  value: string;
-}
-
-interface InputRef {
-  focus(): void;
-}
-
-
-const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = ({name, icon,password = false, ...rest}) => {
-  const inputElementRef = useRef<InputValueReference>(null);
-
+export default function Input({
+  icon,
+  onFocus,
+  onBlur,
+  onChangeText,
+  ...rest
+}: InputProps) {
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
 
-  const handleInputFocus = useCallback(() => {
-    setIsFocused(true);
-  }, []);
+  const handleFocus: NonNullable<TextInputProps["onFocus"]> = useCallback(
+    (event) => {
+      setIsFocused(true);
+      onFocus?.(event);
+    },
+    [onFocus]
+  );
 
-  const handleInputBlur = useCallback(() => {
-    setIsFocused(false);
+  const handleBlur: NonNullable<TextInputProps["onBlur"]> = useCallback(
+    (event) => {
+      setIsFocused(false);
+      onBlur?.(event);
+    },
+    [onBlur]
+  );
 
-    setIsFilled(!!inputElementRef.current?.value);
-  }, []);
+  const handleChangeText = useCallback(
+    (text: string) => {
+      setIsFilled(text.length > 0);
+      onChangeText?.(text);
+    },
+    [onChangeText]
+  );
 
   return (
-    <Container 
-    isErrored={isFocused}
-    isFocused={isFocused}>
-      <Icon 
-      name={icon} size={20} color={isFocused || isFilled ? '#ff9000' : '#4C33CC'} />
+    <Container $isFocused={isFocused}>
+      <Icon
+        name={icon}
+        size={20}
+        color={isFocused || isFilled ? "#FF9000" : "#4C33CC"}
+      />
       <Line />
-      <TextInput      
-        ref={inputElementRef}
-        name={name}
-        icon={icon}
+      <TextInput
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        onChangeText={handleChangeText}
         {...rest}
-        onFocus={handleInputFocus}
-        onBlur={handleInputBlur}
       />
     </Container>
   );
-};
-
-export default forwardRef(Input);
+}

@@ -1,47 +1,41 @@
-import styled from 'styled-components/native'
+import styled from "styled-components/native";
+import Checkbox from "expo-checkbox";
 
-import Checkbox from 'expo-checkbox';
-
-
-export const Container = styled.View`   
- flex: 1;
- width: 100%;
- height: 100%;
+export const Container = styled.View`
+  flex: 1;
   align-items: center;
   justify-content: center;
-  background-color: #4C33CC;
+  background-color: ${({ theme }) => theme.COLORS.PRIMARY};
 `;
 
-
 export const CheckboxNative = styled(Checkbox)`
-background-color: #F7F5F4;
-border-radius: 4px;
-width: 20px;
-height: 20px;
-border: none;
+  background-color: #f7f5f4;
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
 `;
 
 export const CheckboxContainer = styled.View`
-flex-direction: row;
-`
+  flex-direction: row;
+  align-items: center;
+`;
 
 export const CheckboxText = styled.Text`
-font-family: "Inter_400Regular";
-font-size: 15px;
-color: #D5CCFF;
-margin-left: 14px;
-margin-right: 11px;
-`   
-export const Header = styled.View`
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
+  font-family: "Inter_400Regular";
+  font-size: 15px;
+  color: ${({ theme }) => theme.COLORS.PURPLE};
+  margin-left: 14px;
+  margin-right: 11px;
 `;
 
 export const ContainerButton = styled.View`
-margin-top: 18px;
-`
-export const ButtonForgotPassword = styled.TouchableOpacity`
-margin-top: 18px;
-`  
+  margin-top: 18px;
+`;
+
+export const ButtonForgotPassword = styled.TouchableOpacity``;
+
+export const ForgotPasswordText = styled.Text`
+  font-family: "Inter_400Regular";
+  font-size: 15px;
+  color: ${({ theme }) => theme.COLORS.PURPLE};
+`;
