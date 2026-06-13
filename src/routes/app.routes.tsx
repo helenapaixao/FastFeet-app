@@ -2,11 +2,13 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import SignIn from "../screens/SignIn";
 import Dashboard from "../screens/Dashboard";
+import Details from "../screens/Details";
 import ForgotPassword from "../screens/ForgotPassword";
 
 export type RootStackParamList = {
   SignIn: undefined;
   Dashboard: undefined;
+  Details: undefined;
   ForgotPassword: undefined;
 };
 
@@ -27,6 +29,7 @@ export function AppRoutes() {
     >
       <Screen name="SignIn" component={SignIn} />
       <Screen name="Dashboard" component={Dashboard} />
+      <Screen name="Details" component={Details} />
       <Screen name="ForgotPassword" component={ForgotPassword} />
     </Navigator>
   );
