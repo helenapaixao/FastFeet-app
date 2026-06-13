@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { View } from "react-native";
 import { ThemeProvider } from "styled-components/native";
 import { StatusBar } from "expo-status-bar";
@@ -17,10 +17,12 @@ import {
 
 import theme from "./src/theme";
 import { Routes } from "./src/routes";
+import Splash from "./src/screens/Splash";
 
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+  const [appReady, setAppReady] = useState(false);
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
@@ -43,7 +45,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
         <StatusBar style="light" />
-        <Routes />
+        {appReady ? <Routes /> : <Splash onFinish={() => setAppReady(true)} />}
       </View>
     </ThemeProvider>
   );
