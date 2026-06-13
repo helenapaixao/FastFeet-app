@@ -70,7 +70,7 @@ export default function SignIn() {
   return (
     <Container>
       <Decoration>
-        <LogoOutline width={260} height={300} />
+        <LogoOutline width={360} height={420} />
       </Decoration>
       <Header />
       <Input

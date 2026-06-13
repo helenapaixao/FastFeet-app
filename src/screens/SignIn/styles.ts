@@ -10,8 +10,8 @@ export const Container = styled.View`
 
 export const Decoration = styled.View`
   position: absolute;
-  top: 40px;
-  right: -40px;
+  top: 30px;
+  right: -60px;
 `;
 
 export const CheckboxNative = styled(Checkbox)`
