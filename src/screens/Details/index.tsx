@@ -45,6 +45,14 @@ export default function Details() {
     timer.current = setTimeout(() => setRetrieved(false), 2000);
   }
 
+  function handleBack() {
+    if (navigation.canGoBack()) {
+      navigation.goBack();
+    } else {
+      navigation.navigate("Dashboard");
+    }
+  }
+
   return (
     <Container>
       <Header>
@@ -52,7 +60,7 @@ export default function Details() {
           edges={["top"]}
           style={{ flexDirection: "row", alignItems: "center", flex: 1 }}
         >
-          <BackButton onPress={() => navigation.goBack()} activeOpacity={0.7}>
+          <BackButton onPress={handleBack} activeOpacity={0.7}>
             <Feather name="arrow-left" size={24} color="#FFFFFF" />
           </BackButton>
           <HeaderTitle>Detalhes</HeaderTitle>
