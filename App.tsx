@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { View } from "react-native";
 import { ThemeProvider } from "styled-components/native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import * as SplashScreen from "expo-splash-screen";
 
@@ -42,11 +43,17 @@ export default function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-        <StatusBar style="light" />
-        {appReady ? <Routes /> : <Splash onFinish={() => setAppReady(true)} />}
-      </View>
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider theme={theme}>
+        <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+          <StatusBar style="light" />
+          {appReady ? (
+            <Routes />
+          ) : (
+            <Splash onFinish={() => setAppReady(true)} />
+          )}
+        </View>
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }
