@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 import DeliveryCard, { type Delivery } from "../../components/DeliveryCard";
 
@@ -42,6 +43,7 @@ type TabKey = "pending" | "done";
 export default function Dashboard() {
   const [tab, setTab] = useState<TabKey>("pending");
   const [search, setSearch] = useState("");
+  const navigation = useNavigation();
 
   const data = tab === "pending" ? PENDING : DONE;
 
@@ -94,7 +96,10 @@ export default function Dashboard() {
         contentContainerStyle={{ paddingBottom: 24 }}
         renderItem={({ item }) => (
           <List>
-            <DeliveryCard delivery={item} />
+            <DeliveryCard
+              delivery={item}
+              onPressDetails={() => navigation.navigate("Details")}
+            />
           </List>
         )}
       />
