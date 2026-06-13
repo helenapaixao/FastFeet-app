@@ -42,3 +42,8 @@ export const Line = styled.View`
 export const Icon = styled(Feather)`
   margin-right: 16px;
 `;
+
+export const ToggleButton = styled.TouchableOpacity`
+  padding: 4px;
+  margin-left: 8px;
+`;
