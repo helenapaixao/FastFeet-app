@@ -4,28 +4,27 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
+import { Box } from "@/components/ui/box";
+import { Center } from "@/components/ui/center";
+import { HStack } from "@/components/ui/hstack";
+import { VStack } from "@/components/ui/vstack";
+import { Text } from "@/components/ui/text";
+import { Pressable } from "@/components/ui/pressable";
+
 import DeliveredIcon from "../../components/DeliveredIcon";
 
-import {
-  Container,
-  Header,
-  BackButton,
-  HeaderTitle,
-  Body,
-  Card,
-  SectionTitleRow,
-  SectionTitle,
-  FieldRow,
-  Field,
-  FieldLabel,
-  FieldValue,
-  Footer,
-  RetrieveButton,
-  RetrieveText,
-  Overlay,
-  OverlayTitle,
-  OverlaySubtitle,
-} from "./styles";
+function Field({ label, value }: { label: string; value: string }) {
+  return (
+    <VStack className="flex-1">
+      <Text className="mb-1 font-[Roboto_500Medium] text-[11px] tracking-wide text-brand-gray300">
+        {label}
+      </Text>
+      <Text className="font-[Roboto_400Regular] text-[15px] leading-[22px] text-brand-gray100">
+        {value}
+      </Text>
+    </VStack>
+  );
+}
 
 export default function Details() {
   const navigation = useNavigation();
@@ -54,89 +53,81 @@ export default function Details() {
   }
 
   return (
-    <Container>
-      <Header>
-        <SafeAreaView
-          edges={["top"]}
-          style={{ flexDirection: "row", alignItems: "center", flex: 1 }}
-        >
-          <BackButton onPress={handleBack} activeOpacity={0.7}>
-            <Feather name="arrow-left" size={24} color="#FFFFFF" />
-          </BackButton>
-          <HeaderTitle>Detalhes</HeaderTitle>
+    <Box className="flex-1 bg-brand-surface">
+      <Box className="bg-brand-purple px-6 pb-14 pt-4">
+        <SafeAreaView edges={["top"]}>
+          <HStack className="items-center">
+            <Pressable className="-ml-2 p-2" onPress={handleBack}>
+              <Feather name="arrow-left" size={24} color="#FFFFFF" />
+            </Pressable>
+            <Text className="mr-6 flex-1 text-center font-[Roboto_700Bold] text-lg text-white">
+              Detalhes
+            </Text>
+          </HStack>
         </SafeAreaView>
-      </Header>
+      </Box>
 
-      <Body>
+      <Box className="-mt-9 flex-1 px-6">
         <ScrollView showsVerticalScrollIndicator={false}>
-          <Card>
-            <SectionTitleRow>
+          <Box className="mb-4 rounded-lg border border-[#ECEBF1] bg-white p-5">
+            <HStack className="mb-4 items-center">
               <Feather name="clipboard" size={20} color="#FFC042" />
-              <SectionTitle>Dados</SectionTitle>
-            </SectionTitleRow>
+              <Text className="ml-2 font-[Roboto_700Bold] text-base text-brand-gray100">
+                Dados
+              </Text>
+            </HStack>
 
-            <FieldRow>
-              <Field>
-                <FieldLabel>DESTINATÁRIO</FieldLabel>
-                <FieldValue>Diego Fernandes</FieldValue>
-              </Field>
-            </FieldRow>
+            <Box className="mb-4">
+              <Field label="DESTINATÁRIO" value="Diego Fernandes" />
+            </Box>
+            <Field
+              label="ENDEREÇO"
+              value={"Rua Guilherme Gembala, 280\nJardim América, SC\n89 168-000"}
+            />
+          </Box>
 
-            <FieldRow>
-              <Field>
-                <FieldLabel>ENDEREÇO</FieldLabel>
-                <FieldValue>
-                  Rua Guilherme Gembala, 280{"\n"}Jardim América, SC{"\n"}89
-                  168-000
-                </FieldValue>
-              </Field>
-            </FieldRow>
-          </Card>
-
-          <Card>
-            <SectionTitleRow>
+          <Box className="mb-4 rounded-lg border border-[#ECEBF1] bg-white p-5">
+            <HStack className="mb-4 items-center">
               <Feather name="info" size={20} color="#FFC042" />
-              <SectionTitle>Situação</SectionTitle>
-            </SectionTitleRow>
+              <Text className="ml-2 font-[Roboto_700Bold] text-base text-brand-gray100">
+                Situação
+              </Text>
+            </HStack>
 
-            <FieldRow>
-              <Field>
-                <FieldLabel>STATUS</FieldLabel>
-                <FieldValue>Aguardando</FieldValue>
-              </Field>
-              <Field>
-                <FieldLabel>POSTADO EM</FieldLabel>
-                <FieldValue>01/07/2020</FieldValue>
-              </Field>
-            </FieldRow>
-
-            <FieldRow>
-              <Field>
-                <FieldLabel>DATA DE RETIRADA</FieldLabel>
-                <FieldValue>--/--/----</FieldValue>
-              </Field>
-              <Field>
-                <FieldLabel>DATA DE ENTREGA</FieldLabel>
-                <FieldValue>--/--/----</FieldValue>
-              </Field>
-            </FieldRow>
-          </Card>
+            <HStack className="mb-4">
+              <Field label="STATUS" value="Aguardando" />
+              <Field label="POSTADO EM" value="01/07/2020" />
+            </HStack>
+            <HStack>
+              <Field label="DATA DE RETIRADA" value="--/--/----" />
+              <Field label="DATA DE ENTREGA" value="--/--/----" />
+            </HStack>
+          </Box>
         </ScrollView>
-      </Body>
+      </Box>
 
-      <Footer>
-        <RetrieveButton onPress={handleRetrieve} activeOpacity={0.8}>
-          <RetrieveText>Retirar pacote</RetrieveText>
-        </RetrieveButton>
-      </Footer>
+      <Box className="p-6">
+        <Pressable
+          className="h-14 items-center justify-center rounded bg-brand-yellow active:opacity-90"
+          onPress={handleRetrieve}
+        >
+          <Text className="font-[Roboto_500Medium] text-base text-brand-gray100">
+            Retirar pacote
+          </Text>
+        </Pressable>
+      </Box>
 
       <Modal visible={retrieved} transparent animationType="fade">
-        <Overlay>
+        <Center className="flex-1 bg-[rgba(20,12,60,0.75)]">
           <DeliveredIcon size={72} />
-          <OverlayTitle>Pacote retirado.</OverlayTitle>
-          <OverlaySubtitle>Só falta entregar :)</OverlaySubtitle>
-        </Overlay>
+          <Text className="mt-5 font-[Roboto_700Bold] text-xl text-white">
+            Pacote retirado.
+          </Text>
+          <Text className="mt-1.5 font-[Roboto_400Regular] text-sm text-white">
+            Só falta entregar :)
+          </Text>
+        </Center>
       </Modal>
-    </Container>
+    </Box>
   );
 }

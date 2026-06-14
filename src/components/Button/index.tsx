@@ -1,15 +1,21 @@
-import React from "react";
-import { Container, ButtonText } from "./styles";
+import type { ReactNode } from "react";
+
+import { Button as GSButton, ButtonText } from "@/components/ui/button";
 
 interface ButtonProps {
   onPress: () => void;
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
-export default function Button({ onPress,children}: ButtonProps) {
+export default function Button({ onPress, children }: ButtonProps) {
   return (
-    <Container  onPress={onPress}>
-      <ButtonText>{children}</ButtonText>
-    </Container>
+    <GSButton
+      onPress={onPress}
+      className="h-14 w-full rounded bg-brand-yellow active:bg-brand-yellow/90"
+    >
+      <ButtonText className="font-[Roboto_500Medium] text-base text-brand-gray100">
+        {children}
+      </ButtonText>
+    </GSButton>
   );
 }

@@ -1,7 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import { Animated, Easing } from "react-native";
-
-import { Container } from "./styles";
+import { useEffect, useRef } from "react";
+import { Animated, Easing, View } from "react-native";
 
 import LogoSymbol from "../../components/LogoSymbol";
 
@@ -64,10 +62,10 @@ export default function Splash({ onFinish }: Props) {
   }, [onFinish, opacity, scale]);
 
   return (
-    <Container>
+    <View className="flex-1 items-center justify-center bg-brand-purple">
       <Animated.View style={{ transform: [{ scale }], opacity }}>
         <LogoSymbol width={120} height={132} />
       </Animated.View>
-    </Container>
+    </View>
   );
 }

@@ -1,6 +1,5 @@
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { View } from "react-native";
-import { ThemeProvider } from "styled-components/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import * as SplashScreen from "expo-splash-screen";
@@ -16,9 +15,11 @@ import {
   Roboto_700Bold,
 } from "@expo-google-fonts/roboto";
 
-import theme from "./src/theme";
 import { Routes } from "./src/routes";
 import Splash from "./src/screens/Splash";
+
+import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
+import "@/global.css";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -43,8 +44,8 @@ export default function App() {
   }
 
   return (
-    <SafeAreaProvider>
-      <ThemeProvider theme={theme}>
+    <GluestackUIProvider mode="light">
+      <SafeAreaProvider>
         <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
           <StatusBar style="light" />
           {appReady ? (
@@ -53,7 +54,7 @@ export default function App() {
             <Splash onFinish={() => setAppReady(true)} />
           )}
         </View>
-      </ThemeProvider>
-    </SafeAreaProvider>
+      </SafeAreaProvider>
+    </GluestackUIProvider>
   );
 }

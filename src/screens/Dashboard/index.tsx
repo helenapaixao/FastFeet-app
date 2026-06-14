@@ -4,27 +4,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-import DeliveryCard, { type Delivery } from "../../components/DeliveryCard";
+import { Box } from "@/components/ui/box";
+import { HStack } from "@/components/ui/hstack";
+import { Text } from "@/components/ui/text";
+import { Pressable } from "@/components/ui/pressable";
+import { Input, InputField } from "@/components/ui/input";
 
-import {
-  Container,
-  Header,
-  TopRow,
-  Greeting,
-  UserName,
-  LogoutButton,
-  TitleRow,
-  Title,
-  Location,
-  LocationText,
-  SearchBar,
-  SearchInput,
-  Count,
-  List,
-  TabBar,
-  Tab,
-  TabText,
-} from "./styles";
+import DeliveryCard, { type Delivery } from "../../components/DeliveryCard";
 
 const PENDING: Delivery[] = [
   { id: "p3", name: "Pacote 03", date: "01/07/2020", reached: 1 },
@@ -54,40 +40,49 @@ export default function Dashboard() {
   }, [data, search]);
 
   return (
-    <Container>
-      <Header>
+    <Box className="flex-1 bg-brand-surface">
+      <Box className="bg-brand-purple px-6 pb-11 pt-4">
         <SafeAreaView edges={["top"]}>
-          <TopRow>
-            <Greeting>
+          <HStack className="items-start justify-between">
+            <Text className="font-[Roboto_400Regular] text-sm text-brand-lilac">
               Bem vindo,{"\n"}
-              <UserName>Tiago Luchtenberg</UserName>
-            </Greeting>
-            <LogoutButton activeOpacity={0.7}>
+              <Text className="font-[Roboto_500Medium] text-sm text-white">
+                Tiago Luchtenberg
+              </Text>
+            </Text>
+            <Pressable className="h-7 w-7 items-center justify-center rounded-md bg-white/10">
               <Feather name="log-out" size={16} color="#FFC042" />
-            </LogoutButton>
-          </TopRow>
+            </Pressable>
+          </HStack>
 
-          <TitleRow>
-            <Title>Entregas</Title>
-            <Location>
+          <HStack className="mt-6 items-center justify-between">
+            <Text className="font-[Roboto_700Bold] text-[28px] text-white">
+              Entregas
+            </Text>
+            <HStack className="items-center">
               <Feather name="map-pin" size={16} color="#FFC042" />
-              <LocationText>Rio do Sul</LocationText>
-            </Location>
-          </TitleRow>
+              <Text className="ml-1.5 font-[Roboto_400Regular] text-sm text-white">
+                Rio do Sul
+              </Text>
+            </HStack>
+          </HStack>
         </SafeAreaView>
-      </Header>
+      </Box>
 
-      <SearchBar>
-        <SearchInput
+      <Input className="-mt-6 mx-6 h-[52px] rounded-lg border border-[#ECEBF1] bg-white px-4">
+        <InputField
           placeholder="Filtrar por bairro"
           placeholderTextColor="#BEBCCC"
+          className="flex-1 font-[Roboto_400Regular] text-[15px] text-brand-gray100"
           value={search}
           onChangeText={setSearch}
         />
         <Feather name="search" size={20} color="#4C33CC" />
-      </SearchBar>
+      </Input>
 
-      <Count>{filtered.length} entregas</Count>
+      <Text className="my-4 text-center font-[Roboto_400Regular] text-xs text-brand-gray300">
+        {filtered.length} entregas
+      </Text>
 
       <FlatList
         data={filtered}
@@ -95,31 +90,49 @@ export default function Dashboard() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 24 }}
         renderItem={({ item }) => (
-          <List>
+          <Box className="px-6">
             <DeliveryCard
               delivery={item}
               onPressDetails={() => navigation.navigate("Details")}
             />
-          </List>
+          </Box>
         )}
       />
 
-      <TabBar>
-        <Tab
-          $active={tab === "pending"}
-          activeOpacity={0.8}
+      <HStack className="border-t border-[#ECEBF1] bg-white">
+        <Pressable
+          className={`flex-1 items-center border-t-2 pb-6 pt-4 ${
+            tab === "pending" ? "border-brand-purple" : "border-transparent"
+          }`}
           onPress={() => setTab("pending")}
         >
-          <TabText $active={tab === "pending"}>Pendentes</TabText>
-        </Tab>
-        <Tab
-          $active={tab === "done"}
-          activeOpacity={0.8}
+          <Text
+            className={`text-[15px] ${
+              tab === "pending"
+                ? "font-[Roboto_500Medium] text-brand-purple"
+                : "font-[Roboto_400Regular] text-brand-gray200"
+            }`}
+          >
+            Pendentes
+          </Text>
+        </Pressable>
+        <Pressable
+          className={`flex-1 items-center border-t-2 pb-6 pt-4 ${
+            tab === "done" ? "border-brand-purple" : "border-transparent"
+          }`}
           onPress={() => setTab("done")}
         >
-          <TabText $active={tab === "done"}>Feitas</TabText>
-        </Tab>
-      </TabBar>
-    </Container>
+          <Text
+            className={`text-[15px] ${
+              tab === "done"
+                ? "font-[Roboto_500Medium] text-brand-purple"
+                : "font-[Roboto_400Regular] text-brand-gray200"
+            }`}
+          >
+            Feitas
+          </Text>
+        </Pressable>
+      </HStack>
+    </Box>
   );
 }
