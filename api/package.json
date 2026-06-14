@@ -1,0 +1,20 @@
+{
+  "name": "fastfeet-api",
+  "version": "1.0.0",
+  "description": "FastFeet API - backend (DDD + Clean Architecture)",
+  "private": true,
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0",
+    "vite-tsconfig-paths": "^5.1.0",
+    "vitest": "^2.1.0"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.0"
+  }
+}
